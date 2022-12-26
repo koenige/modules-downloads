@@ -1,0 +1,17 @@
+# downloads module
+# template: form for access codes
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/downloads
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2022 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+<p>Hier kannst du Zugriffscodes für Dateidownloads erstellen. Falls du neue vergeben 
+willst, benutze bitte nicht bestehende, die noch nicht aktiviert sind. Erstelle dafür 
+bitte neue Codes.</p>
+
+<div><form action="" method="POST">
+Codes generieren: <input type="number" name="no_of_codes"> (Anzahl) <input type="submit">
+</form></div>

@@ -1,0 +1,73 @@
+# downloads module
+# template: download
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/downloads
+#
+# @author Gustaf Mossakowski <gustaf@koenige.org>
+# @copyright Copyright © 2017-2019, 2022 Gustaf Mossakowski
+# @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
+#
+%%% condition if downloads_introduction %%%
+%%% item downloads_introduction markdown %%%
+%%% condition else %%%
+<p>Hier kannst Du Dateien zur Veranstaltung herunterladen.</p>
+%%% condition endif %%%
+<p>Dazu benötigst Du einen Code. 
+Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_validity_in_hours %%% Stunden gültig.</p>
+
+%%% condition if downloads_unavailable %%%
+<div class="error">%%% item downloads_unavailable markdown %%%</div>
+
+%%% condition else %%%
+
+%%% condition if show_files %%%
+
+<div class="results">
+<table>
+<thead>
+<tr class="sortable"><th>Dateiname</th><th>Dateigröße</th><th>Stand</th></tr>
+</thead>
+<tbody id="js-download">
+%%% loop files %%%
+<tr><td><a href="%%% item filename %%%">%%% item title %%%</a></td>
+<td><span class="sortonly">%%% item filesize %%%</span> %%% item filesize wrap_bytes %%%</td>
+<td>%%% item timestamp %%%</td></tr>
+%%% loop end %%%
+</tbody>
+</table>
+</div>
+
+%%% item further_downloads markdown %%%
+
+%%% condition else %%%
+
+%%% condition if access_forbidden %%%
+<p class="error">Für den Zugriff auf die Datei <code>%%% item access_forbidden %%%</code> gib bitte den Code ein:</p>
+
+%%% condition elseif fehler %%%
+<p class="error">Der Code ist leider nicht gültig oder abgelaufen.</p>
+
+%%% condition endif %%%
+
+<div><form method="POST" action="">
+<input type="text" name="code" value="%%% item code wrap_html_escape %%%">
+<input type="submit" value="Abschicken">
+</form>
+</div>
+<p>Der Code ist einlösbar bis zum %%% item download_until wrap_date %%%.</p>
+
+%%% condition endif %%%
+%%% condition endif %%%
+
+<p>Rückfragen bitte an %%% request mailaddress %%%.</p>
+
+<script src="%%% setting behaviour_path %%%/vxjs/src/core.js"></script>
+<script src="%%% setting behaviour_path %%%/vxjs/src/widgets/sortable.js"></script>
+<script>
+	var sortTableObject = vxJS.widget.sorTable(document.getElementById('js-download'), {
+		columnFormat: [
+			null, 'float'
+		]
+	});
+</script>
