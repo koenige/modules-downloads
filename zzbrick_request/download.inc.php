@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2017-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -103,7 +103,6 @@ function mod_downloads_download($vars, $settings, $event) {
 }
 
 function mod_downloads_download_files($vars, $settings, $event) {
-	global $zz_setting;
 	wrap_https_redirect();
 
 	if (count($vars) !== 3) return false;
