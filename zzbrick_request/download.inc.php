@@ -14,9 +14,8 @@
 
 
 function mod_downloads_download($vars, $settings, $event) {
-	global $zz_setting;
 	wrap_https_redirect();
-	$zz_setting['cache'] = false;
+	wrap_setting('cache', false);
 	$data = [];
 	$data['event'] = $event['event'];
 	$data['year'] = $event['year'];
@@ -45,7 +44,7 @@ function mod_downloads_download($vars, $settings, $event) {
 	$data += wrap_db_fetch($sql, '_dummy_', 'key/value');
 
 	if (empty($_SESSION['code_id'])) {
-		session_save_path($zz_setting['session_save_path']);
+		session_save_path(wrap_setting('session_save_path'));
 		session_start();
 	}
 	
@@ -62,7 +61,7 @@ function mod_downloads_download($vars, $settings, $event) {
 		$sql = sprintf($sql
 			, wrap_db_escape(trim($_POST['code']))
 			, $event['event_id']
-			, wrap_get_setting('downloads_access_codes_validity_in_hours')
+			, wrap_setting('downloads_access_codes_validity_in_hours')
 		);
 		$code = wrap_db_fetch($sql);
 		if ($code) {
@@ -75,7 +74,7 @@ function mod_downloads_download($vars, $settings, $event) {
 				$ops = zzform_multi('access-codes', $values);
 			}
 			$_SESSION['code_id'] = $code['code_id'];
-			return wrap_redirect(dirname($zz_setting['request_uri']), 307, false);
+			return wrap_redirect(dirname(wrap_setting('request_uri')), 307, false);
 		} else {
 			$data['code'] = $_POST['code'];
 			$data['fehler'] = true;
@@ -107,7 +106,7 @@ function mod_downloads_download_files($vars, $settings, $event) {
 
 	if (count($vars) !== 3) return false;
 
-	session_save_path(wrap_get_setting('session_save_path'));
+	session_save_path(wrap_setting('session_save_path'));
 	session_start();
 	if (empty($_SESSION['code_id'])) {
 		session_destroy();
@@ -124,8 +123,8 @@ function mod_downloads_download_files($vars, $settings, $event) {
 
 function mod_downloads_download_folder($event) {
 	return sprintf('%s/%s/%s'
-		, wrap_get_setting('media_folder')
-		, wrap_get_setting('downloads_data_folder')
+		, wrap_setting('media_folder')
+		, wrap_setting('downloads_data_folder')
 		, $event['identifier']
 	);
 }

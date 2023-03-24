@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017-2019, 2022 Gustaf Mossakowski
+ * @copyright Copyright © 2017-2019, 2022-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -19,8 +19,6 @@
  * @param array $ops
  */
 function export_pdf_gutscheine($ops) {
-	global $zz_setting;
-	
 	// get event_id
 	foreach ($ops['output']['head'] as $index => $line) {
 		if (empty($line['field_name'])) continue;
@@ -44,7 +42,7 @@ function export_pdf_gutscheine($ops) {
 	// Feld-IDs raussuchen
 	$nos = export_pdf_gutscheine_nos($ops['output']['head']);
 
-	require_once $zz_setting['modules_dir'].'/default/libraries/tfpdf.inc.php';
+	require_once wrap_setting('modules_dir').'/default/libraries/tfpdf.inc.php';
 
 	$pdf = new TFPDF('P', 'pt', 'A4');		// panorama = p, DIN A4, 595 x 842
 	$pdf->setCompression(true);
@@ -69,7 +67,7 @@ function export_pdf_gutscheine($ops) {
 		$top = ($i - 1) % 4;
 
 		// Links: Bild
-		$pdf->image($zz_setting['media_folder'].'/chessy/188-Chessy-konzentriert.600.png', 20, 20 + 8 + ($top * 210.5), 257, 138.5);
+		$pdf->image(wrap_setting('media_folder').'/chessy/188-Chessy-konzentriert.600.png', 20, 20 + 8 + ($top * 210.5), 257, 138.5);
 
 		// Rechts: Code
 		$pdf->SetXY(317.5, 20 + ($top * 210.5) + 40);
@@ -96,9 +94,9 @@ function export_pdf_gutscheine($ops) {
 			$pdf->Cell(257 - 82, 12, 'Deutsche Schachjugend', 0, 2, 'L');
 //			$pdf->Cell(257 - 82, 12, 'im Deutschen Schachbund e. V.', 0, 2, 'L');
 			$pdf->Cell(257 - 82, 12, 'https://www.deutsche-schachjugend.de/', 0, 2, 'L');
-			$pdf->image($zz_setting['media_folder'].'/urkunden-grafiken/DSJ-Logo.jpg', 317.5 - 20 - 82, ($j + 1) * 210.5 - 20 - 76 - 10, 82, 76);
+			$pdf->image(wrap_setting('media_folder').'/urkunden-grafiken/DSJ-Logo.jpg', 317.5 - 20 - 82, ($j + 1) * 210.5 - 20 - 76 - 10, 82, 76);
 
-			$pdf->image($zz_setting['media_folder'].'/chessy/195-Chessy-vor-Kronentor.600.png', 317.5, $j * 210.5 + 30, 132, 150.5);
+			$pdf->image(wrap_setting('media_folder').'/chessy/195-Chessy-vor-Kronentor.600.png', 317.5, $j * 210.5 + 30, 132, 150.5);
 			$pdf->setXY(317.5 + 10 + 149, $j * 210.5 + 20);
 			$pdf->setFont('FiraSans-SemiBold', '', 28);
 			$pdf->Cell(100, 24, '#DEM'.mb_substr($event['year'].'', 2, 2), 0, 2, 'L');
@@ -111,7 +109,7 @@ function export_pdf_gutscheine($ops) {
 		$pdf->addPage();
 	}
 
-	$folder = $zz_setting['tmp_dir'].'/gutscheine/'.$event['identifier'];
+	$folder = wrap_setting('tmp_dir').'/gutscheine/'.$event['identifier'];
 	wrap_mkdir($folder);
 	if (file_exists($folder.'/gutscheine.pdf')) {
 		unlink($folder.'/gutscheine.pdf');
