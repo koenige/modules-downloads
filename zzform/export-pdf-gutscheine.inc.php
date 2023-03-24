@@ -42,7 +42,7 @@ function export_pdf_gutscheine($ops) {
 	// Feld-IDs raussuchen
 	$nos = export_pdf_gutscheine_nos($ops['output']['head']);
 
-	require_once wrap_setting('modules_dir').'/default/libraries/tfpdf.inc.php';
+	wrap_lib('tfpdf');
 
 	$pdf = new TFPDF('P', 'pt', 'A4');		// panorama = p, DIN A4, 595 x 842
 	$pdf->setCompression(true);
