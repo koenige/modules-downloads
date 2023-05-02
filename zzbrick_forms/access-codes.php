@@ -8,12 +8,12 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017, 2019-2022 Gustaf Mossakowski
+ * @copyright Copyright © 2017, 2019-2023 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
 
-$zz = zzform_include_table('access-codes');
+$zz = zzform_include('access-codes');
 
 $zz['where']['event_id'] = $brick['data']['event_id'];
 
