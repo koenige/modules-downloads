@@ -33,9 +33,8 @@ $zz['fields'][2]['if']['where']['hide_in_list'] = true;
 $zz['fields'][3]['field_name'] = 'hash';
 $zz['fields'][3]['type'] = 'identifier';
 $zz['fields'][3]['fields'] = ['event_id', 'hash'];
-$zz['fields'][3]['conf_identifier']['function'] = 'wrap_random_hash';
-$zz['fields'][3]['conf_identifier']['function_parameter'][] = 8;
-$zz['fields'][3]['conf_identifier']['function_parameter'][] = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
+$zz['fields'][3]['conf_identifier']['random_hash'] = 8;
+$zz['fields'][3]['conf_identifier']['random_hash_charset'] = 'ABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
 
 $zz['fields'][4]['title_tab'] = 'A?';
 $zz['fields'][4]['field_name'] = 'active';
