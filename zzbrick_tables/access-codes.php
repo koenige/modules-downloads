@@ -63,7 +63,7 @@ $zz['sql'] = 'SELECT /*_PREFIX_*/access_codes.*
 $zz['sqlorder'] = ' ORDER BY /*_PREFIX_*/events.identifier, hash';
 
 // @todo translate
-$zz_conf['export'][] = 'PDF Gutscheine';
+$zz['export'][] = 'PDF Gutscheine';
 
 
 $zz['filter'][1]['title'] = wrap_text('Validity');

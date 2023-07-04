@@ -17,7 +17,7 @@ $zz = zzform_include('access-codes');
 
 $zz['where']['event_id'] = $brick['data']['event_id'];
 
-$zz_conf['referer'] = '../';
+$zz['page']['referer'] = '../';
 
 $zz['explanation'] = wrap_template('access-codes-form');
 
