@@ -96,7 +96,7 @@ function mod_downloads_download($vars, $settings, $event) {
 	
 	$page['title'] = 'Downloads <br><a href="../">'.$data['event'].' '.$data['year'].'</a>';
 	if (!empty($data['access_forbidden'])) $page['url_ending'] = 'none';
-	$page['breadcrumbs'][] = 'Downloads';
+	$page['breadcrumbs'][]['title'] = 'Downloads';
 	$page['text'] = wrap_template('download', $data);
 	return $page;
 }
