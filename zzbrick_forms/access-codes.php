@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017, 2019-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2017, 2019-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -23,13 +23,12 @@ $zz['explanation'] = wrap_template('access-codes-form');
 
 if (!empty($_POST['no_of_codes'])) {
 	$no_of_codes = intval($_POST['no_of_codes']);
-	for ($i = 0; $i < $no_of_codes; $i++) {
-		$values = [];
-		$values['action'] = 'insert';
-		$values['POST']['event_id'] = $brick['data']['event_id'];
-		$values['POST']['active'] = 'yes';
-		$ops = zzform_multi('access-codes', $values);
-	}
+	$line = [
+		'event_id' => $brick['data']['event_id'],
+		'active' => 'yes'
+	];
+	for ($i = 0; $i < $no_of_codes; $i++)
+		zzform_insert('access-codes', $line)
 }
 
 $zz['fields'][2]['key_field_name'] = 'event_id';

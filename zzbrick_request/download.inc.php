@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2017-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -66,12 +66,12 @@ function mod_downloads_download($vars, $settings, $event) {
 		$code = wrap_db_fetch($sql);
 		if ($code) {
 			if (empty($code['activation_date'])) {
-				$values = [];
-				$values['action'] = 'update';
-				$values['POST']['code_id'] = $code['code_id'];
-				$values['POST']['activation_date'] = date('Y-m-d H:i:s');
-				$values['POST']['activation_ip'] = $_SERVER['REMOTE_ADDR'];
-				$ops = zzform_multi('access-codes', $values);
+				$line = [
+					'code_id' => $code['code_id'],
+					'activation_date' => date('Y-m-d H:i:s'),
+					'activation_ip' = $_SERVER['REMOTE_ADDR']
+				];
+				zzform_update('access-codes', $line);
 			}
 			$_SESSION['code_id'] = $code['code_id'];
 			return wrap_redirect(dirname(wrap_setting('request_uri')), 307, false);
