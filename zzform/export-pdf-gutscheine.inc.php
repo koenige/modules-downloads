@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017-2019, 2022-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2017-2019, 2022-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -119,8 +119,7 @@ function export_pdf_gutscheine($ops) {
 	$file['etag_generate_md5'] = true;
 
 	$pdf->output('F', $file['name'], true);
-	wrap_file_send($file);
-	exit;
+	wrap_send_file($file);
 }	
 
 /**

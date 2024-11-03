@@ -117,8 +117,7 @@ function mod_downloads_download_files($vars, $settings, $event) {
 	$file['name'] = $dir.'/'.urldecode($vars[2]);
 	session_write_close();
 	if (!file_exists($file['name'])) return false;
-	return wrap_file_send($file);
-	exit;
+	wrap_send_file($file);
 }
 
 function mod_downloads_download_folder($event) {
