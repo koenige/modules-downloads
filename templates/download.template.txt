@@ -5,23 +5,23 @@
 # https://www.zugzwang.org/modules/downloads
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2017-2019, 2022 Gustaf Mossakowski
+# @copyright Copyright © 2017-2019, 2022, 2024 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
-%%% condition if downloads_introduction %%%
+%%% if downloads_introduction %%%
 %%% item downloads_introduction markdown %%%
-%%% condition else %%%
+%%% else %%%
 <p>Hier kannst Du Dateien zur Veranstaltung herunterladen.</p>
-%%% condition endif %%%
+%%% endif %%%
 <p>Dazu benötigst Du einen Code. 
 Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_validity_in_hours %%% Stunden gültig.</p>
 
-%%% condition if downloads_unavailable %%%
+%%% if downloads_unavailable %%%
 <div class="error">%%% item downloads_unavailable markdown %%%</div>
 
-%%% condition else %%%
+%%% else %%%
 
-%%% condition if show_files %%%
+%%% if show_files %%%
 
 <div class="results">
 <table>
@@ -40,15 +40,15 @@ Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_val
 
 %%% item further_downloads markdown %%%
 
-%%% condition else %%%
+%%% else %%%
 
-%%% condition if access_forbidden %%%
+%%% if access_forbidden %%%
 <p class="error">Für den Zugriff auf die Datei <code>%%% item access_forbidden %%%</code> gib bitte den Code ein:</p>
 
-%%% condition elseif fehler %%%
+%%% elseif fehler %%%
 <p class="error">Der Code ist leider nicht gültig oder abgelaufen.</p>
 
-%%% condition endif %%%
+%%% endif %%%
 
 <div><form method="POST" action="">
 <input type="text" name="code" value="%%% item code wrap_html_escape %%%">
@@ -57,8 +57,8 @@ Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_val
 </div>
 <p>Der Code ist einlösbar bis zum %%% item download_until wrap_date %%%.</p>
 
-%%% condition endif %%%
-%%% condition endif %%%
+%%% endif %%%
+%%% endif %%%
 
 <p>Rückfragen bitte an %%% request mailaddress %%%.</p>
 
