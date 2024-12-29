@@ -56,12 +56,11 @@ function mod_downloads_download($vars, $settings, $event) {
 			WHERE hash = "%s"
 			AND event_id = %d
 			AND active = "yes"
-			AND (ISNULL(activation_date) OR activation_date >= DATE_SUB(NOW(), INTERVAL %d hour))';
+			AND (ISNULL(activation_date) OR activation_date >= DATE_SUB(NOW(), INTERVAL /*_SETTING downloads_access_codes_validity_in_hours _*/ hour))';
 		// @todo activation_date
 		$sql = sprintf($sql
 			, wrap_db_escape(trim($_POST['code']))
 			, $event['event_id']
-			, wrap_setting('downloads_access_codes_validity_in_hours')
 		);
 		$code = wrap_db_fetch($sql);
 		if ($code) {

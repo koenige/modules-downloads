@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017, 2019-2020, 2022-2023 Gustaf Mossakowski
+ * @copyright Copyright © 2017, 2019-2020, 2022-2024 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -70,14 +70,8 @@ $zz['filter'][1]['title'] = wrap_text('Validity');
 $zz['filter'][1]['identifier'] = 'validity';
 $zz['filter'][1]['type'] = 'list';
 $zz['filter'][1]['where_if'][1] = 'ISNULL(activation_date)';
-$zz['filter'][1]['where_if'][2] = sprintf(
-	'activation_date >= DATE_SUB(NOW(), INTERVAL %d hour)'
-	, wrap_setting('downloads_access_codes_validity_in_hours')
-);
-$zz['filter'][1]['where_if'][3] = sprintf(
-	'activation_date < DATE_SUB(NOW(), INTERVAL %d hour)'
-	, wrap_setting('downloads_access_codes_validity_in_hours')
-);
+$zz['filter'][1]['where_if'][2] = 'activation_date >= DATE_SUB(NOW(), INTERVAL /*_SETTING downloads_access_codes_validity_in_hours _*/ hour)';
+$zz['filter'][1]['where_if'][3] = 'activation_date < DATE_SUB(NOW(), INTERVAL /*_SETTING downloads_access_codes_validity_in_hours _*/ hour)';
 $zz['filter'][1]['selection'][1] = wrap_text('unused');
 $zz['filter'][1]['selection'][2] = wrap_text('active');
 $zz['filter'][1]['selection'][3] = wrap_text('expired');
