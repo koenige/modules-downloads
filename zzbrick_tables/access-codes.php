@@ -26,7 +26,6 @@ $zz['fields'][2]['sql'] = 'SELECT event_id, event, identifier
 	FROM events
 	ORDER BY identifier';
 $zz['fields'][2]['display_field'] = 'event';
-$zz['fields'][2]['id_field_name'] = 'event_id';
 $zz['fields'][2]['if']['where']['hide_in_form'] = true;
 $zz['fields'][2]['if']['where']['hide_in_list'] = true;
 

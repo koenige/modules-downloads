@@ -31,8 +31,6 @@ if (!empty($_POST['no_of_codes'])) {
 		zzform_insert('access-codes', $line)
 }
 
-$zz['fields'][2]['key_field_name'] = 'event_id';
-
 $zz['subtitle']['event_id']['sql'] = 'SELECT event
 	, CONCAT(events.date_begin, IFNULL(CONCAT("/", events.date_end), "")) AS duration
 	FROM events';
