@@ -75,7 +75,7 @@ function export_pdf_gutscheine($ops) {
 		$pdf->setFont('FiraSans-SemiBold', '', 36);
 		$pdf->Cell(257, 48, $line[$nos['hash']]['text'], 0, 2, 'L');
 		$pdf->setFont('FiraSans-Regular', '', 12);
-		$pdf->Cell(257, 18, 'Einlösbar ab '.wrap_date($event['date_end']).' bis 31.12.'.$event['year'].' unter', 0, 2, 'L');
+		$pdf->Cell(257, 18, 'Einlösbar ab '.wrap_date_plain($event['date_end']).' bis 31.12.'.$event['year'].' unter', 0, 2, 'L');
 		$pdf->Cell(257, 18, 'http://www.dem'.$event['year'].'.de/download', 0, 2, 'L');
 		$i++;
 		
@@ -88,7 +88,7 @@ function export_pdf_gutscheine($ops) {
 		for ($j = 0; $j < 4; $j++) {
 			$pdf->setY($j * 210.5 + 20);
 			$pdf->setFont('FiraSans-Regular', '', 12);
-			$pdf->MultiCell(257, 16, 'Diese Karte enthält einen Code, mit dem du ab So '.wrap_date($event['date_end']).' 22 Uhr Photos, Videos, die Zeitung und die Partien der DEM '.$event['year'].' herunterladen kannst. Der Code ist ab der ersten Benutzung 48 Stunden gültig.', 0, 'L');
+			$pdf->MultiCell(257, 16, 'Diese Karte enthält einen Code, mit dem du ab So '.wrap_date_plain($event['date_end']).' 22 Uhr Photos, Videos, die Zeitung und die Partien der DEM '.$event['year'].' herunterladen kannst. Der Code ist ab der ersten Benutzung 48 Stunden gültig.', 0, 'L');
 			$pdf->setFont('FiraSans-Regular', '', 9);
 			$pdf->setXY($pdf->getX(), $pdf->getY() + 10 + 32); 
 			$pdf->Cell(257 - 82, 12, 'Deutsche Schachjugend', 0, 2, 'L');
@@ -101,7 +101,7 @@ function export_pdf_gutscheine($ops) {
 			$pdf->setFont('FiraSans-SemiBold', '', 28);
 			$pdf->Cell(100, 24, '#DEM'.mb_substr($event['year'].'', 2, 2), 0, 2, 'L');
 			$pdf->setFont('FiraSans-Regular', '', 12);
-			$pdf->Cell(100, 24, str_replace(html_entity_decode('&#8239;'), '', wrap_date($event['duration'])), 0, 2, 'L');
+			$pdf->Cell(100, 24, str_replace(html_entity_decode('&#8239;'), '', wrap_date_plain($event['duration'])), 0, 2, 'L');
 			$pdf->setFont('FiraSans-SemiBold', '', 24);
 			$pdf->MultiCell(100, 28, 'Photos Videos Zeitung Partien', 0, 'L');
 		}
