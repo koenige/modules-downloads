@@ -5,11 +5,11 @@
 # https://www.zugzwang.org/modules/downloads
 #
 # @author Gustaf Mossakowski <gustaf@koenige.org>
-# @copyright Copyright © 2017-2019, 2022, 2024-2025 Gustaf Mossakowski
+# @copyright Copyright © 2017-2019, 2022, 2024-2026 Gustaf Mossakowski
 # @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
 #
 %%% if downloads_introduction %%%
-%%% item downloads_introduction markdown %%%
+%%% item downloads_introduction format=markdown %%%
 %%% else %%%
 <p>Hier kannst Du Dateien zur Veranstaltung herunterladen.</p>
 %%% endif %%%
@@ -17,7 +17,7 @@
 Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_validity_in_hours %%% Stunden gültig.</p>
 
 %%% if downloads_unavailable %%%
-<div class="error">%%% item downloads_unavailable markdown %%%</div>
+<div class="error">%%% item downloads_unavailable format=markdown %%%</div>
 
 %%% else %%%
 
@@ -31,14 +31,14 @@ Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_val
 <tbody id="js-download">
 %%% loop files %%%
 <tr><td><a href="%%% item filename %%%">%%% item title %%%</a></td>
-<td><span class="sortonly">%%% item filesize %%%</span> %%% item filesize wrap_bytes %%%</td>
+<td><span class="sortonly">%%% item filesize %%%</span> %%% item filesize format=bytes %%%</td>
 <td>%%% item timestamp %%%</td></tr>
 %%% loop end %%%
 </tbody>
 </table>
 </div>
 
-%%% item further_downloads markdown %%%
+%%% item further_downloads format=markdown %%%
 
 %%% else %%%
 
@@ -51,11 +51,11 @@ Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_val
 %%% endif %%%
 
 <div><form method="POST" action="">
-<input type="text" name="code" value="%%% item code wrap_html_escape %%%">
+<input type="text" name="code" value="%%% item code format=html_escape %%%">
 <input type="submit" value="Abschicken">
 </form>
 </div>
-<p>Der Code ist einlösbar bis zum %%% item download_until wrap_date %%%.</p>
+<p>Der Code ist einlösbar bis zum %%% item download_until format=date %%%.</p>
 
 %%% endif %%%
 %%% endif %%%
