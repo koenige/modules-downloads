@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017, 2019-2025 Gustaf Mossakowski
+ * @copyright Copyright © 2017, 2019-2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -28,7 +28,7 @@ if (!empty($_POST['no_of_codes'])) {
 		'active' => 'yes'
 	];
 	for ($i = 0; $i < $no_of_codes; $i++)
-		zzform_insert('access-codes', $line)
+		zzform_insert('access-codes', $line);
 }
 
 $zz['subtitle']['event_id']['sql'] = 'SELECT event_id, event
