@@ -8,7 +8,7 @@
  * https://www.zugzwang.org/modules/downloads
  *
  * @author Gustaf Mossakowski <gustaf@koenige.org>
- * @copyright Copyright © 2017-2019, 2022-2024 Gustaf Mossakowski
+ * @copyright Copyright © 2017-2019, 2022-2024, 2026 Gustaf Mossakowski
  * @license http://opensource.org/licenses/lgpl-3.0.html LGPL-3.0
  */
 
@@ -94,7 +94,8 @@ function export_pdf_gutscheine($ops) {
 			$pdf->Cell(257 - 82, 12, 'Deutsche Schachjugend', 0, 2, 'L');
 //			$pdf->Cell(257 - 82, 12, 'im Deutschen Schachbund e. V.', 0, 2, 'L');
 			$pdf->Cell(257 - 82, 12, 'https://www.deutsche-schachjugend.de/', 0, 2, 'L');
-			$pdf->image(wrap_setting('media_folder').'/urkunden-grafiken/DSJ-Logo.jpg', 317.5 - 20 - 82, ($j + 1) * 210.5 - 20 - 76 - 10, 82, 76);
+			// @todo resolve logo from organiser's contacts_media instead of hardcoded path
+			$pdf->image(wrap_setting('media_folder').'/logos/dsj-logo-kreis-schrift-schwarz-gelb.master.png', 317.5 - 20 - 82, ($j + 1) * 210.5 - 20 - 76 - 10, 82, 76);
 
 			$pdf->image(wrap_setting('media_folder').'/chessy/195-Chessy-vor-Kronentor.600.png', 317.5, $j * 210.5 + 30, 132, 150.5);
 			$pdf->setXY(317.5 + 10 + 149, $j * 210.5 + 20);
