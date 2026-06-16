@@ -44,7 +44,7 @@ function export_pdf_gutscheine($ops) {
 
 	wrap_lib('tfpdf');
 
-	$pdf = new TFPDF('P', 'pt', 'A4');		// panorama = p, DIN A4, 595 x 842
+	$pdf = new zzTFPDF('P', 'pt', 'A4');		// panorama = p, DIN A4, 595 x 842
 	$pdf->setCompression(true);
 	// Fira Sans!
 	$pdf->AddFont('FiraSans-Regular', '', 'FiraSans-Regular.ttf', true);
