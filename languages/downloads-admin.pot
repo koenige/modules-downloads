@@ -1,0 +1,29 @@
+# downloads module
+# Translations, admin
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/downloads
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zugzwang Project -- downloads module\n"
+"POT-Creation-Date: 2026-07-24 15:31+0000\n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: configuration/access.cfg:21
+msgid "Create and view access codes for event downloads"
+msgstr ""
+
+#: configuration/settings.cfg:22
+msgid "validity of the access code in hours until expiry after first activation"
+msgstr ""
+
+#: configuration/settings.cfg:27
+msgid "folder where download files are stored, organised by event identifier"
+msgstr ""

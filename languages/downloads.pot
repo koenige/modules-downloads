@@ -1,0 +1,77 @@
+# downloads module
+# Translations
+#
+# Part of »Zugzwang Project«
+# https://www.zugzwang.org/modules/downloads
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Zugzwang Project -- downloads module\n"
+"POT-Creation-Date: 2026-07-24 15:31+0000\n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: zzbrick_tables/access-codes.php:16
+msgid "Access Codes"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:19
+msgid "ID"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:23
+msgid "Event"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:32
+msgid "Hash"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:38
+msgid "A?"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:39
+msgid "Active"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:41
+msgid "no"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:41
+msgid "yes"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:44
+msgid "Activation Date"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:48
+msgid "Activation IP"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:52
+msgid "Creation Date"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:68
+msgid "Validity"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:74
+msgid "unused"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:75
+msgid "active"
+msgstr ""
+
+#: zzbrick_tables/access-codes.php:76
+msgid "expired"
+msgstr ""
