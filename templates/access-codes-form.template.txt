@@ -14,4 +14,6 @@ this.</p>
 
 <div><form action="" method="POST">
 Generate codes: <input type="number" name="no_of_codes"> (Number) <input type="submit">
-</form></div>
+</form>
+%%% script default/form-submit-once.js %%%
+</div>

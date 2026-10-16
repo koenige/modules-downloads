@@ -54,6 +54,7 @@ Ab der ersten Benutzung ist der Code für %%% setting downloads_access_codes_val
 <input type="text" name="code" value="%%% item code format=html_escape %%%">
 <input type="submit" value="Abschicken">
 </form>
+%%% script default/form-submit-once.js %%%
 </div>
 <p>Der Code ist einlösbar bis zum %%% item download_until format=date %%%.</p>
 
